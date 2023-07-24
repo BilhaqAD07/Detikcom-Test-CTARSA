@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTARSA TEST | Blog 1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        * {
+            font-family: 'Lexend Deca', sans-serif;
+        }
+ 
+        .navbar {
+            /* position: static; */
+            background: #F5F5F5;
+            z-index: 999;
+        }
+
+        .nav-hover::after {
+            content: '';
+            display: block;
+            border-bottom: 4px solid #000;
+            transform: scaleX(0.5);
+            transition: .2s ease-in-out;
+        }
+
+        .nav-hover:hover:after {
+            transform: scaleX(0);
+        }
+
+        .blog_wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: #f7fcff;
+            padding: 80px 0;
+        }
+
+        .head_text {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .blog_box {
+            transition: .3s;
+            margin-top: 45px;
+            margin-bottom: 10px;
+        }
+        
+        .blog_box:hover {
+            transform: translateY(-5px);
+            border-radius: 8px;
+        }
+        
+        .blog_box .blog_img {
+            display: block;
+        }
+        
+        .blog_text {
+            box-shadow: 0px 18px 24px 0px rgba(118, 118, 178, 0.28);
+            padding: 20px 20px 30px 20px;
+            position: relative;
+            background: #ffffff;
+        }
+
+        .blog_text a {
+            text-decoration: none;
+        }
+
+        .blog_text a h2 {
+            font-size: 18px;
+            line-height: 30px;
+            margin-bottom: 13px;
+        }
+
+        .blog_para {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .blog_sub {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .blog_sub img {
+            margin-right: 10px;
+            width: 35px !important;
+            height: 35px;
+            border-radius: 50%;
+        }
+
+        .blog_sub h4 {
+            color: #7676B2;
+            font-size: 14px;
+            font-weight: 400;
+            padding-left: 5px;
+            margin: 0;
+        }
+
+        .blog_sub i {
+            margin-right: 10px;
+            color: #fe4c1c;
+        }
+
+
+        /*Extra large devices (large desktops, 1200px and up)*/
+        @media (max-width: 1399px){
+            
+        }
+        @media (min-width: 1400px) { 
+            
+        }
+        @media (min-width: 1200px) { 
+
+        }
+
+        @media (max-width: 1199px) { 
+            .blog_wrapper {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .blog_sub h4 {
+                font-size: 12px;
+                padding-left: 4px;
+            }
+
+
+        }
+
+        /*Medium devices (tablets, 767px and down)*/
+        @media (max-width: 767px) {
+            
+            .blog_box {
+                max-width: 65%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+        }
+
+        /*Small devices (landscape phones, 575px and down)*/
+        @media (max-width: 575px) {
+            
+            .blog_box {
+                max-width: 100%;
+            }
+
+            .head_text {
+                font-size: 30px;
+            }
+
+        }
+
+
+        input::placeholder {
+            color: white;
+        }
+
+        .btn-next {
+            border-radius: 4px;
+            background: rgba(84, 104, 231, 0.50);
+            border: none;
+        }
+
+        .btn-next:hover {
+            border-radius: 4px;
+            background: rgba(84, 104, 231, 0.50);
+            color: #F5F5F5;
+        }
+
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-sm">
+            <div class="container-fluid justify-content-between">
+                <a class="navbar-brand mx-0 mx-md-5">
+                    <a href="./Landing_page.html" class="text-decoration-none text-black fw-bold" style="font-size: 50px;">team<span style="color: #5468E7;">.</span></a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse pt-5 pt-md-0 mt-5 mt-md-0 justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Product</strong></a>
+                    </li>
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Blog</strong></a>
+                    </li>
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Support</strong></a>
+                    </li>    
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Log In</strong></a>
+                    </li>    
+                    <li class="nav-item">
+                    <a class="nav-link register mx-3 p-2 px-5" style="border-radius: 4px;
+                    background: rgba(84, 104, 231, 0.50);" href="#"><strong>Get Access</strong></a>
+                    </li>    
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero mx-3 d-flex flex-column justify-content-center align-items-start" style="background: #F5F5F5;">
+            <article class="hero-content mx-3 mx-md-5 mt-5">
+                <h1 class="mx-3 mx-md-5"><strong>Blog</strong></h1>
+                <p class="mx-3 mx-md-5">Open-source threaded team chat that helps teams stay productive and focused.</p>
+            </article>
+        </div>
+    </header>
+    <main class="container-fluid" style="background-color: #F5F5F5;">
+        <section class="container blog-wrapper">
+            <div class="card-body container-fluid row">
+                <div class="col-md-4 col-sm-12 col-12 blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100 rounded-top" src="./assets/Image_blog1.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>Data exported by Team Cloud organization</h2></a>
+                        <p class="blog_para">An internal investigation recently uncovered a vulnerability (identified as CVE-2022-21706) in Zulip’s invitation links.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="/assets/Avatar_blog1.png" alt="news_icon">
+                                <h4>Cameron Williamson | July 1, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog2.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>Swap long video calls and emails for asynchronous video</h2></a>
+                        <p class="blog_para">Meetings are essential for communication and team building, but they’re often unproductive. Asynchronous video to the rescue.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog2.png" alt="news_icon">
+                                <h4>Robert Fox | June 21, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog3.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>Flexibility reigns: six key takeaways from Frontiers 2023</h2></a>
+                        <p class="blog_para">The future of work is having a digital HQ that works for you.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog3.png" alt="news_icon">
+                                <h4>Jenny Wilson | June 10, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog4.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>Team plus Sales Cloud: Your sales team’s new digital HQ</h2></a>
+                        <p class="blog_para">Why everyone on your sales team will benefit from our app’s killer features.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog4.png" alt="news_icon">
+                                <h4>Kathryn Murphy | May 11, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog5.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>What is digital culture?</h2></a>
+                        <p class="blog_para">The teams best prepared for change use modern digital communication tools, feel comfortable learning new ones and continually adapt how they work.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog5.png" alt="news_icon">
+                                <h4>BDevon Lane | May 22, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog6.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>Steve Dotto’s top 10 tips for overcoming workplace hiccups</h2></a>
+                        <p class="blog_para">The executive producer of Dotto Tech shares his favorite Slack strategies for conquering common challenges in the digital-first workplace.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog6.png" alt="news_icon">
+                                <h4>Theresa Webb | April 4, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog7.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>What’s new in Team: iPad updates, split-screen view and more</h2></a>
+                        <p class="blog_para">An internal investigation recently uncovered a vulnerability (identified as CVE-2022-21706) in Zulip’s invitation links.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog7.png" alt="news_icon">
+                                <h4>Eleanor Pena | March 18, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100 rounded-top" src="./assets/Image_blog8.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>Drive more efficiency and cost savings with these updates to Workflow Builder</h2></a>
+                        <p class="blog_para">New and upcoming automation features help your teams do more with less.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog8.png" alt="news_icon">
+                                <h4>Jerome Bell | February 12, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12  blog_box">
+                    <a class="blog_img" href="#"><img class="img-fluid w-100" src="./assets/Image_blog9.png" alt="blog-post01"></a>
+                    <div class="blog_text rounded-bottom">
+                        <a href="#" style="color: #5468E7;"><h2>7 tips to onboard sales reps with ease</h2></a>
+                        <p class="blog_para">The executive producer of Dotto Tech shares his favorite Slack strategies for conquering common challenges in the digital-first workplace.</p>
+                        <div class="blog_sub">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Avatar_blog9.png" alt="news_icon">
+                                <h4>Savannah Nguyen | January 7, 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <a class="d-flex justify-content-center text-decoration-none py-5" href="./Blog_2.html">
+                    <button class="btn-next px-5 p-2">Next</button>
+                </a>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="text-start text-muted mt-5 pt-2" style="background-color: #232340;">
+        <!-- Section: Links  -->
+        <section class="text-white mt-5">
+        <div class="container text-start mt-5">
+            <!-- Grid row -->
+            <div class="mx-md-0 mx-2 row">
+                <!-- Grid column -->
+                <div class="col-sm-12 col-lg-4 col-xl-2 mx-auto mb-4">
+                    <!-- Content -->
+                    <a href="#" class="text-decoration-none text-white" style="font-size: 50px;">team<span style="color: #5468E7;">.</span></a>
+            
+                    <p class="me-md-0 me-5 pe-md-0 pe-5">
+                        Collaboration platform for mordern team 
+                    </p>
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                    Company
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Product</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Blog</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Support</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                        Features
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Screen Sharing</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">iOS & Android Apps</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">File Sharing</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">User Management</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                        Contact Us
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">info@teamapp.com</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">1-800-200-300</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">1010 Sunset Blv.Palo Alto, California</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                        Stay up to date
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Subscribe to our newseller</a>
+                    </p>
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input
+                              type="email"
+                              class="border-0 rounded-2" style="width: 70%; padding: 11px 16px; background: rgba(245, 245, 245, 0.24);"
+                              placeholder="Email"
+                            />
+                            <span class="input-group-text border-0" style="background: rgba(245, 245, 245, 0.24);" id="basic-addon2"><i class="fas fa-arrow-right" style="color: white;"></i></span>
+                        </div>
+                    </form>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+        </section>
+        <!-- Section: Links  -->
+    
+        <!-- Copyright -->
+        <div class="container text-white p-4 mt-5" style="background-color: rgba(0, 0, 0, 0.025);">
+            © Copyright Team Inc.
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function client_carouselInit() {
+                $('.owl-carousel.blog_carousel').owlCarousel({
+                    loop: true,
+                    margin: 30,
+                    items: 9,
+                    stagePadding: 2,
+                    autoplay: false,
+                    autoplayTimeout: 2000,
+                    autoplayHoverPause: true,
+                    smartSpeed: 1500,
+                    nav: true,
+                    navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+                    dots: false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        375: {
+                            items: 1,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 2,
+                        },
+                        992: {
+                            items: 3,
+                        }
+                    }
+                });
+            }
+            client_carouselInit();
+    </script>
+</body>
+</html>
