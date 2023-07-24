@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTARSA TEST | Landing Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        * {
+            font-family: 'Lexend Deca', sans-serif;
+        }
+ 
+        .navbar {
+            position: static;
+            z-index: 999;
+        }
+
+        .hero {
+            background: url(./assets/bg-landing.png) no-repeat center/cover;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            max-width: 40rem;
+        }
+
+        .daftar {
+            background-color: #5468E7;
+        }
+
+        .daftar:hover {
+            background-color: #5468e799;
+        }
+
+        .nav-hover::after {
+            content: '';
+            display: block;
+            border-bottom: 4px solid #fff;
+            transform: scaleX(0.5);
+            transition: .2s ease-in-out;
+        }
+
+        .nav-hover:hover:after {
+            transform: scaleX(0);
+        }
+
+        .calender {
+            top: 0;
+            right: 5%;
+        }
+
+        .img-group {
+            bottom: 5%;
+            right: 5%;
+        }
+
+        .img-group-2 {
+            bottom: 5%;
+            left: 5%;
+        }
+
+        .blog_wrapper {
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .head_text {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .blog_box {
+            transition: .3s;
+            margin-top: 45px;
+            margin-bottom: 10px;
+        }
+
+        .blog_box:hover {
+            box-shadow: 0.5px 20.292px 34px 1px rgba(197, 197, 197, 0.41);
+            transform: translateY(-5px);
+        }
+
+        .blog_box{
+            display: inline-block;
+        }
+
+        .blog_text {
+            min-width: 260px;
+            padding: 44px 33px;
+            padding-top: 70px;
+            max-width: 367px;
+            position: relative;
+            background: #FFF;
+            box-shadow: 0px 16px 24px 0px rgba(118, 118, 178, 0.24);
+        }
+
+        .blog_text figure {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            padding: 5px 0px;
+            transition: .3s;
+        }
+
+        .blog_sub {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .blog_sub img {
+            margin-right: 10px;
+            width: 50px !important;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .owl-carousel .owl-nav{
+            overflow: hidden;
+            height: 0px;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span, 
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background: #2caae1;
+        }
+
+
+        .owl-carousel .item {
+            text-align: center;
+        }
+        .owl-carousel .nav-btn{
+            height: 47px;
+            position: absolute;
+            width: 26px;
+            cursor: pointer;
+            /* bottom: 100px !important; */
+        }
+
+        .owl-carousel .owl-prev.disabled,
+        .owl-carousel .owl-next.disabled{
+            pointer-events: none;
+            opacity: 0.2;
+        }
+        
+        .owl-carousel .prev-slide{
+            position: absolute;
+            background: url(./assets/arrow-left.svg) no-repeat scroll 0 0;
+            right: 100px;
+        }
+        .owl-carousel .next-slide{
+            background: url(./assets/arrow-right.svg) no-repeat scroll 0px 0px;
+            right: 50px;
+        }
+        .owl-carousel .prev-slide:hover{
+            background-position: 0px -53px;
+        }
+        .owl-carousel .next-slide:hover{
+            background-position: -24px -53px;
+        }
+        /*Extra large devices (large desktops, 1200px and up)*/
+        @media screen and (min-width:1400px) {
+            .calender {
+                top: 0;
+                right: 12%;
+            }
+
+            .img-group {
+                bottom: 5%;
+                right: 18%;
+            }
+
+            .img-group-2 {
+                bottom: 5%;
+                left: 5%;
+            }
+        }
+
+        @media screen and (max-width:992px) {
+            .calender {
+                top: 0;
+                right: 8%;
+                width: 60%;
+            }
+            
+            .img-group {
+                width: 40%;
+                bottom: 15%;
+                right: 5%;
+            }
+            
+            .img-group-2 {
+                width: 40%;
+                bottom: 30%;
+                left: 5%;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            .calender {
+                top: 0;
+                right: 10%;
+            }
+
+            .img-group {
+                width: 45%;
+                top: 5%;
+                right: 5%;
+            }
+            
+            .img-group-2 {
+                width: 45%;
+                bottom: 5%;
+                left: 5%;
+            }
+
+            .card .img-wrapper {
+                height: 17em;
+            }
+            .owl-carousel .prev-slide{
+                position: absolute;
+                background: url(./assets/arrow-left.svg) no-repeat scroll 0 0;
+                left: 150px;
+            }
+            .owl-carousel .next-slide{
+                background: url(./assets/arrow-right.svg) no-repeat scroll 0px 0px;
+                left: 200px;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .nav-hover::after {
+                display: none;
+            }
+
+            .hero {
+                background-image: url(./assets/bg-landing-mobile.png);
+            }
+
+            .hero-content {
+                min-width: 23rem;
+            }
+
+            .input-group, .daftar {
+                width: 100%!important;
+            }
+
+            .calender {
+                width: 60%;
+                right: 5%;
+            }
+
+            .img-group-2 {
+                width: 40%;
+                bottom: 5%;
+                left: 8%;
+            }
+
+            .owl-carousel .prev-slide{
+                position: absolute;
+                background: url(./assets/arrow-left.svg) no-repeat scroll 0 0;
+                right: 40px;
+            }
+            .owl-carousel .next-slide{
+                background: url(./assets/arrow-right.svg) no-repeat scroll 0px 0px;
+                right: 1px;
+            }
+
+        }
+        
+        @media (max-width: 1199px) { 
+            .blog_wrapper {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .blog_sub h4 {
+                font-size: 12px;
+                padding-left: 4px;
+            }
+
+
+        }
+
+        /*Medium devices (tablets, 767px and down)*/
+        @media (max-width: 767px) {
+            
+            .blog_box {
+                max-width: 65%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+        }
+
+        /*Small devices (landscape phones, 575px and down)*/
+        @media (max-width: 575px) {
+            
+            .blog_box {
+                max-width: 100%;
+            }
+
+            .head_text {
+                font-size: 30px;
+            }
+        }
+
+        input::placeholder {
+            color: white;
+        }
+
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark position-fixed pt-4 pt-md-3">
+            <div class="container-fluid justify-content-between position-fixed pt-5" style="background-color: rgba(35, 35, 64, 0.2);">
+                <a class="navbar-brand mx-0 mx-md-5" href="#">
+                    <a href="#" class="text-decoration-none text-white" style="font-size: 50px;">team<span style="color: #5468E7;">.</span></a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse pt-5 pt-md-0 mt-5 mt-md-0 justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Product</strong></a>
+                    </li>
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Blog</strong></a>
+                    </li>
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Support</strong></a>
+                    </li>    
+                    <li class="nav-item nav-hover">
+                    <a class="nav-link mx-3" href="#"><strong>Log In</strong></a>
+                    </li>    
+                    <li class="nav-item">
+                    <a class="nav-link register mx-3 p-2 px-5" style="border-radius: 4px;
+                    background: rgba(84, 104, 231, 0.50);" href="#"><strong>Get Access</strong></a>
+                    </li>    
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero d-flex flex-column justify-content-center align-items-start">
+            <article class="hero-content mx-3 mx-md-5 pe-5">
+                <h1 class="text-white mx-3 mx-md-5"><strong>Instant collaboration for remote teams</strong></h1>
+                <h5 class="text-white mx-3 mx-md-5 ">All-in-one place for your remote team to chat, collaborate and track project progress.</h5>            <!-- Submit button -->
+                <form class="ms-3 ms-md-0" action="">
+                    <div class="form-outline d-flex flex-md-row flex-column mx-0 mx-md-5 mt-5 gap-3">
+                        <div class="input-group mb-3 w-50">
+                            <input
+                              type="email"
+                              class="form-control border-0"
+                              placeholder="Email"
+                            />
+                            <span class="input-group-text border-0" id="basic-addon2"><i class="fas fa-arrow-right" style="color: #7676B2;"></i></span>
+                        </div>
+                        <a href="#">
+                            <button type="submit" class="btn btn-primary rounded-1 px-4 daftar">Get Early Access</button>
+                        </a>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </header>
+    <main class="container-fluid" style="background-color: #F5F5F5;">
+        <section id="mockup" class="pt-5">
+            <article class="d-flex flex-column-reverse flex-md-row">
+                <div class="col d-flex flex-column px-md-5 mx-auto mx-md-5 justify-content-center">
+                    <h1 class="me-md-3 mx-3 mx-md-0" style="color: #232340;"><strong>Chats for your distributed teams</strong></h1>
+                    <p class="me-md-3 mx-3 mx-md-0 mb-3" style="color: #232340;">Team combines the immediacy of real-time chat with an email threading model. With Team, you can catch up on important conversations while ignoring irrelevant ones.</p> 
+                    <a style="color: #5468E7;" class="mx-3 mx-md-0 mt-4 mt-md-5" href="#">
+                       Learn more<span class="fas fa-arrow-right-long ms-2"></span>
+                    </a>
+                </div>
+                <div class="col-md-7 mb-5 overflow-x-hidden">
+                    <img src="./assets/mockup.png" alt="" class="img">
+                </div>
+            </article>
+        </section>
+        <section id="info-section" class="container pt-5">
+            <article class="row">
+                <div class="d-flex justify-content-center col-sm-12 col-md-6 mb-5 mb-md-0 position-relative">
+                    <img src="./assets/Image_chat.png" alt="" class="img-fluid">
+                    <img src="./assets/Calender.png" alt="" class="img-fluid calender position-absolute mt-3">
+                </div>
+                <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center ps-md-5 ps-4">
+                    <h1 class="me-md-5 pe-md-5" style="color: #232340;"><strong>Chats for your distributed teams</strong></h1>
+                    <p class="me-md-5 pe-md-5 mb-3" style="color: #232340;">Team combines the immediacy of real-time chat with an email threading model. With Team, you can catch up on important conversations while ignoring irrelevant ones.</p> 
+                    <a style="color: #5468E7;" class="mt-4 mt-md-5" href="#">
+                       Learn more<span class="fas fa-arrow-right-long ms-2"></span>
+                    </a>
+                </div>
+            </article>
+        </section>
+        <section id="info-section_2" class="container d-flex pt-5">
+            <article class="d-flex flex-column-reverse flex-md-row">
+                <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center">
+                    <h1 class="me-md-5 pe-md-5 mx-3 mx-md-0" style="color: #232340;"><strong>Choose how you want to work</strong></h1>
+                    <p class="me-md-5 pe-md-5 mx-3 mx-md-0 mb-3" style="color: #232340;">In Team, you’ve got all the flexibility to work when, where and how it’s best for you. You can easily chat, send audio and video clips, or hop on a huddle to talk things out live.</p> 
+                    <a style="color: #5468E7;" class="mx-3 mx-md-0 mt-4 pt-md-5" href="#">
+                       Learn more<span class="fas fa-arrow-right-long ms-2"></span>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-5 mb-md-0 position-relative">
+                    <img src="./assets/Image_chat1.png" alt="" class="img-fluid">
+                    <div class="img-group d-flex flex-column gap-2 position-absolute">
+                        <img src="./assets/progress.png" alt="" class="img-fluid">
+                        <img src="./assets/user.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section id="info-section" class="container pt-5">
+            <article class="row">
+                <div class="col-sm-12 col-md-6 mb-5 mb-md-0 position-relative">
+                    <img src="./assets/Image_chat2.png" alt="" class="img-fluid">
+                    <div class="img-group-2 d-flex flex-column gap-2 position-absolute">
+                        <img src="./assets/progress2.png" alt="" class="img-fluid">
+                        <img src="./assets/user2.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center ps-md-5 ps-4">
+                    <h1 class="me-md-5 pe-md-5" style="color: #232340;"><strong>Move faster with your Team tools</strong></h1>
+                    <p class="me-md-5 pe-md-5 mb-3" style="color: #232340;">With your other work apps connected to Team, you can work faster by switching tabs less. And with powerful tools like Workflow Builder, you can automate away routine tasks.</p> 
+                    <a style="color: #5468E7;" class="mt-4 mt-md-5" href="#">
+                       Learn more<span class="fas fa-arrow-right-long ms-2"></span>
+                    </a>
+                </div>
+            </article>
+        </section>
+        <section id="carousel" class="container-fluid">
+            <div class="article">
+                <h1 class="text-center pt-5" style="color: #232340;"><strong>What people say about Team</strong></h1>
+            </div>
+            <article class="blog_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="ms-0 ms-md-5 ms-lg-5 col-12">
+                            <article class="owl-carousel blog_carousel">
+                                <div class="blog_box">
+                                    <div class="blog_text">
+                                        <figure class="d-flex">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                        </figure>
+                                        <p class="blog_para">Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. Proin porta est convallis lacus blandit pretium sed non enim. Maecenas lacinia non orci at aliquam. Donec finibus, urna bibendum ultricies laoreet.</p>
+                                        <div class="blog_sub">
+                                            <div class="d-flex align-items-center">
+                                                <img src="./assets/profile1.png" alt="news_icon">
+                                                <div class="">
+                                                    <h6>Chealsea Morgan</h6>
+                                                    <span class="" style="color: #7676B2;">CEO of Subway</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog_box">
+                                    <div class="blog_text">
+                                        <figure class="d-flex">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                        </figure>
+                                        <p class="blog_para">In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat volutpat. Curabitur fringilla in purus eget egestas. Etiam quis.</p>
+                                        <div class="blog_sub">
+                                            <div class="d-flex align-items-center">
+                                                <img src="./assets/profile2.png" alt="news_icon">
+                                                <div class="">
+                                                    <h6>Nick Cave</h6>
+                                                    <span class="" style="color: #7676B2;">CEO of Nokia</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog_box">
+                                    <div class="blog_text">
+                                        <figure class="d-flex">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                        </figure>
+                                        <p class="blog_para">Aliquam pulvinar vestibulum blandit. Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. Pellentesque vulputate quam a quam volutpat, sed ullamcorper erat commodo.</p>
+                                        <div class="blog_sub">
+                                            <div class="d-flex align-items-center">
+                                                <img src="./assets/profile3.png" alt="news_icon">
+                                                <div class="">
+                                                    <h6>Lana Rosenfeld</h6>
+                                                    <span class="" style="color: #7676B2;">Senior VP at Pinterest</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog_box">
+                                    <div class="blog_text">
+                                        <figure class="d-flex">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                        </figure>
+                                        <p class="blog_para">Porta nisl dolor, molestie pellentesque elit molestie in. Morbi metus neque, elementum ullamcorper hendrerit eget, tincidunt et nisi. Sed magna nunc.</p>
+                                        <div class="blog_sub">
+                                            <div class="d-flex align-items-center">
+                                                <img src="./assets/profile4.png" alt="news_icon">
+                                                <div class="">
+                                                    <h6>Giorgio Moroder</h6>
+                                                    <span class="" style="color: #7676B2;">CTO ot Glovo</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog_box">
+                                    <div class="blog_text">
+                                        <figure class="d-flex">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                            <img class="img-fluid" src="./assets/./Star.png" alt="blog-post01">
+                                        </figure>
+                                        <p class="blog_para">Integer turpis quam, laoreet id orci nec, ultrices kacinia nunc. Aliquam erat volutpat. Curabitur fringilla in purus eget egestas. Etiam quis. In a laoreet purus.</p>
+                                        <div class="blog_sub">
+                                            <div class="d-flex align-items-center">
+                                                <img src="./assets/profile5.png" alt="news_icon">
+                                                <div class="">
+                                                    <h6>Young Liu</h6>
+                                                    <span class="" style="color: #7676B2;">CAO of Foxiconn</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+    </main>
+    <!-- Footer -->
+    <footer class="text-start text-muted pt-2" style="background-color: #232340;">
+        <!-- Section: Links  -->
+        <section class="text-white mt-5">
+        <div class="container text-start mt-5">
+            <!-- Grid row -->
+            <div class="mx-md-0 mx-2 row">
+                <!-- Grid column -->
+                <div class="col-sm-12 col-lg-4 col-xl-2 mx-auto mb-4">
+                    <!-- Content -->
+                    <a href="#" class="text-decoration-none text-white" style="font-size: 50px;">team<span style="color: #5468E7;">.</span></a>
+            
+                    <p class="me-md-0 me-5 pe-md-0 pe-5">
+                        Collaboration platform for mordern team 
+                    </p>
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                    Company
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Product</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Blog</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Support</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                        Features
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Screen Sharing</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">iOS & Android Apps</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">File Sharing</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">User Management</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                        Contact Us
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">info@teamapp.com</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">1-800-200-300</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">1010 Sunset Blv.Palo Alto, California</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-lg-2 col-xl-2 mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="fs-5 mb-4" style="color: #5468E7;">
+                        Stay up to date
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset text-decoration-none">Subscribe to our newseller</a>
+                    </p>
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input
+                              type="email"
+                              class="border-0 rounded-2" style="width: 70%; padding: 11px 16px; background: rgba(245, 245, 245, 0.24);"
+                              placeholder="Email"
+                            />
+                            <span class="input-group-text border-0" style="background: rgba(245, 245, 245, 0.24);" id="basic-addon2"><i class="fas fa-arrow-right" style="color: white;"></i></span>
+                        </div>
+                    </form>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+        </section>
+        <!-- Section: Links  -->
+    
+        <!-- Copyright -->
+        <div class="container text-white p-4 mt-5" style="background-color: rgba(0, 0, 0, 0.025);">
+            © Copyright Team Inc.
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function client_carouselInit() {
+                $('.owl-carousel.blog_carousel').owlCarousel({
+                    loop: true,
+                    margin: 30,
+                    items: 5,
+                    stagePadding: 2,
+                    autoplay: false,
+                    autoplayTimeout: 2000,
+                    autoplayHoverPause: true,
+                    smartSpeed: 1500,
+                    nav: true,
+                    navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+                    dots: false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        375: {
+                            items: 1,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 2,
+                        },
+                        992: {
+                            items: 3,
+                        }
+                    }
+                });
+            }
+            client_carouselInit();
+    </script>
+</body>
+</html>
